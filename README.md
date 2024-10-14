@@ -1,4 +1,4 @@
-# LODs-Easy-Generator
+# LODs-Easy-Generator (by erasam)
 
 This project was born to make life easier for Microsoft Flight Simulator aircraft developers (as I am) using Blender as the 3D development platform
 
