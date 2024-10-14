@@ -9,6 +9,10 @@ There are actually several freeware and payware add-ons available for Blender tr
 
 Therefore I designed a workflow to implement with a custom a Blender dd-on an automatic process for LODs files creation taking in consideration this critical requirement but I didn't find anyone willing to develop it therefore I decided to develop it on my own
 
-I should say I never created 
+I should say I never created a custom Blender addon before neither I knew how to program using Python language (the one required by Blender to develop custom extendions) but as I have a computer science background I accepted this challenge
+
+Luckily there are a lot of Blender custom add-ons examples available just browsing the web and for any doubt I had during the development I found a lot of answers just looking for them
+
+After a lot of trial and error attempts I finally have reached the result I was actually looking for (with some additional ideas I added during the development) and the LODS Easy Generator came to life
 
 Note: all my current payware aircraft creations for Microsoft Flight Simulator have been published on the in-game marketplace and SimMarket site by AeroSachs 
