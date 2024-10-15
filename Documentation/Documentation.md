@@ -73,10 +73,10 @@ With the parameters shown in the previous picture, the **Generate LOD files** bu
 
 ![LODSfiles](./images/LODs_files.jpg)
 
-The first iteration (LOD00) file will be like this:
+The first iteration (Sample_LOD00.blend) file will be like this:
 
 ![LODsIteration0](./images/LODs_Iteration_0.jpg)
 
-The second (and last) iteration (LOD01) file will be like this (and the one currently being edited):
+The second (and last) iteration (Sample_LOD01.blend) file will be like this (and the one currently being edited at the end of the generation process):
 
 ![LODsIteration1](./images/LODs_Iteration_1.jpg)
