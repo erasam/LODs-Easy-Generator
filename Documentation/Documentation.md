@@ -2,7 +2,7 @@ The LODs Easy Generator custom add-on allows the selection of the following para
 ![Parameters](./images/Parameters.jpg)
 
 - Search by:
--   Collection / Meshes
+  - Collection / Meshes
 - Search Filter: 
   - All / By name
     -  If Search by Meshes the Search Filter also accept wildcard
