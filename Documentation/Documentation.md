@@ -40,11 +40,11 @@ The **LODs Easy Generator** add-on implements the following workflow:
    - If "Meshes" and "By Name" have been selected the retrieved meshes are all the ones identified by their Name matching the **Name Filter** (also using wildcard)
    - In all other cases just select all meshes
 
-2. For each iteration between **LOD Start** and **LOD End** (both included)
+2. For each Iteration between **LOD Start** and **LOD End** (both included)
     - If **Enable Collections by Iterations** is selected then:
-      - It makes visible (if hidden) in the viewport all the collections (and all belonging meshes regardless of their Name property) having their Name property containing "LOD0"+current iteration
+      - It makes visible (if hidden) in the viewport all the collections having their Name property containing "LOD0"+Iteration; it also makes visible (if hidden) all belonging meshes regardless of their Name property
         - For example in the iteration "1" it will make visible in the viewport the Collections having "LOD01" in their Name (and all belonging objects regardless of their Name)  
-      - It hides from the viewport all the collections (and all belonging meshes regardless of their Name property) having its Name property containing "LOD0"+a different iteration
+      - It hides from the viewport all the collections having their Name property containing "LOD0"+a different iteration; it also hide all belonging meshes regardless of their Name property
         - For example in the iteration "1" it will hide in the viewport the Collections having "LOD00" or "LOD02" in their Name (and all belonging objects regardless of their Name)
 
     - For each previously selected Mesh object, if visible in the viewport:
@@ -56,12 +56,15 @@ The **LODs Easy Generator** add-on implements the following workflow:
 
       - If **Apply all modifiers** is selected it applies all the modifiers associated to it
 
-      - It appends a new Decimate modifier to the selected mesh having
-      - Name="LOD"+"str(iteration+1)"
-      - Type="Decimate type"
-      - Ratio based on "Decimate ratio"   //depending on "Decimate Type" e.g. for Collapse 1-decimateRatio*(iteration+1) 
+      - It appends a new Decimate modifier to the selected mesh having:
+        - Name set as "LOD0"+"iteration"
+        - Type set as **Decimate type**
+        - Attibutes set (by **Decimate type**) based on Decimate Parameters and in particular:
+           - If "Collapse" the modifier Ratio is set as 1-**Collapse Ratio***(Iteration+1)
+           - If "Un-Subdivide" the modifier Iterations is set as **Un-Subdivide Iterations***(Iteration+1)
+           - If "Planar" the modifier Angle Limit is set as **Planar Angle Limit***(Iteration+1)
 
-    - It saves a new blender file with same source name + LODiteration   //e.g. format(fileName, "_LOD",str(iteration+1),".blend")
+    - It saves a new blender file in the selected **Directory** with the name built as **Filename**+"LOD0"+"iteration"
 
 # Add-on execution
 With the parameters shown in the previous picture, the **Generate LOD files** button will create two files as shown in the following pictures:
