@@ -33,7 +33,7 @@ The **LODs Easy Generator** custom Blender add-on allows the selection of the fo
 
 # Add-on workflow
 The **LODs Easy Generator** add-on implements the following workflow:
-1. Retrieve list of Mesh objects matching selection parameters
+1. Retrieve list of Mesh objects in the Blender file being edited matching selection parameters
    - If "Collections" and "By Name" have been selected the retrieved meshes are all belonging to the collection identified by its Name property
    - If "Meshes" and "By Name" have been selected the retrieved meshes are all the ones identified by their Name matching the **Name Filter** (also using wildcard)
    - In all other case just select all meshes
