@@ -37,7 +37,7 @@ After a lot of trial and error attempts I finally have reached the result I was 
 
 4. Select the `LODs-Easy-Generator.zip` file and click on the Install Add-on button.
 
-![Edit Preferences - Install](misc/Install/Edit_Pref_install.png)
+![Edit Preferences - Install](Documentation/images/AddonInstall.jpg)
 
 5. Enable the Add-on by clicking on the checkbox.
 
