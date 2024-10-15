@@ -1,12 +1,12 @@
 The LODs Easy Generator custom add-on allows the selection of the following parameters:
 ![Parameters](./images/Parameters.jpg)
 
-- Search by:
-  - Collection / Meshes
+- **Search by:**
+  - Collections / Meshes
 - Search Filter: 
   - All / By name
     -  If Search by Meshes the Search Filter also accept wildcard
-- Number of Iterations (from LOD_start to LOD_end)
+- Number of Iterations (from LODs Start to LODs End)
 - Decimate type (Collapse/Un-subdivide/Planar)
 - Delimit (None/Normal/Seam/Sharp/UVs) //only if Planar
 - Decimate ratio (Numeric)
