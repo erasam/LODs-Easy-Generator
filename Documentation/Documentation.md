@@ -1,4 +1,4 @@
-The LODs Easy Generator custom add-on allows the selection of the following parameters:
+The **LODs Easy Generator** custom Blender add-on allows the selection of the following parameters:
 ![Parameters](./images/Parameters.jpg)
 
 - **Search by:**
@@ -7,11 +7,23 @@ The LODs Easy Generator custom add-on allows the selection of the following para
   - All / By name
     -  If Search by Meshes the Search Filter also accept wildcard
 - Number of Iterations (from **LODs Start** to **LODs End**)
-- Decimate type (Collapse/Un-subdivide/Planar)
-- Delimit (None/Normal/Seam/Sharp/UVs) //only if Planar
-- Decimate ratio (Numeric)
-- Delete existing Decimate modifier (Y/N)
-- Apply all modifiers (Y/N)
+- **Enable Collections by Iterations** (Y/N)
+- **Subdiv Modifiers**:
+  - Leave
+  - Reduce Level
+  - Delete
+- **Delete existing Decimate Modifiers** (Y/N)
+- **Apply all Modifiers** (Y/N)
+- **Decimate Type** (Collapse/Un-subdivide/Planar)
+- Decimate Parameters (by **Decimate type**)
+  - Collapse:
+    - Collapse Ratio
+    - Collapse Triangulate
+  - Un-Subdivide:
+  - Planar:
+    - Delimit (None/Normal/Seam/Sharp/UVs) //only if Planar
+    - Decimate ratio (Numeric)
+
 - LODs path
 - LODs filename
 
