@@ -41,21 +41,20 @@ The **LODs Easy Generator** add-on implements the following workflow:
    - In all other cases just select all meshes
 
 2. For each iteration between **LOD Start** and **LOD End** (both included)
-  - If **Enable Collections by Iterations** is selected then:
-    - It enables all the collections (and belonging meshes) having its Name property containing "LOD0"+current iteration
-    - It disables all the collections (and belonging meshes) having its Name property containing "LOD0"+a different iteration
+    - If **Enable Collections by Iterations** is selected then:
+      - It enables all the collections (and belonging meshes) having its Name property containing "LOD0"+current iteration
+      - It disables all the collections (and belonging meshes) having its Name property containing "LOD0"+a different iteration
 
-  - If **Delete existing Decimate modifier** is selected it deletes all Decimate modifiers associated to it
+    - If **Delete existing Decimate modifier** is selected it deletes all Decimate modifiers associated to it
 
-  - If **Apply all modifiers** is selected it applies all the modifiers associated to it
+    - If **Apply all modifiers** is selected it applies all the modifiers associated to it
 
-  - It appends a new Decimate modifier to the selected mesh having
-    - Name="LOD"+"str(iteration+1)"
-    - Type="Decimate type"
-    - Ratio based on "Decimate ratio"   //depending on "Decimate Type" e.g. for Collapse 1-decimateRatio*(iteration+1) 
+    - It appends a new Decimate modifier to the selected mesh having
+      - Name="LOD"+"str(iteration+1)"
+      - Type="Decimate type"
+      - Ratio based on "Decimate ratio"   //depending on "Decimate Type" e.g. for Collapse 1-decimateRatio*(iteration+1) 
 
-- If "Save file" it saves a new blender file with same source name + LODiteration   //e.g. format(fileName, "_LOD",str(iteration+1),".blend")
-- If "Open created file" it invokes a new blender instance to open the created file
+    - It saves a new blender file with same source name + LODiteration   //e.g. format(fileName, "_LOD",str(iteration+1),".blend")
 
 # Add-on execution
 With the parameters shown in the previous picture, the **Generate LOD files** button will create two files as shown in the following pictures:
