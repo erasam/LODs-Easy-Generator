@@ -33,9 +33,9 @@ After a lot of trial and error attempts I finally have reached the result I was 
 
 ![Edit Preferences - Add](Documentation/images/Preferences.jpg)
 
-3. Go to Add-ons and click on Install an add-on; this will bring up a file dialog where you navigate to the folder where you have your `LODs-Easy-Generator.zip` downloaded file.
+3. Go to Add-ons and click on Install an add-on: this will bring up a file dialog where you navigate to the folder where you have your `lods-easy-generator.zip` downloaded file.
 
-4. Select the `LODs-Easy-Generator.zip` file and click on the Install Add-on button.
+4. Select the `lods-easy-generator.zip` file and click on the Install Add-on button.
 
 ![Edit Preferences - Install](Documentation/images/AddonInstall.jpg)
 
