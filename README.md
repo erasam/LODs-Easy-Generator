@@ -1,4 +1,4 @@
-[![MSFS](misc/Logos/msfs_logo.png)](https://www.flightsimulator.com/)
+[![MSFS](../Documentation/images/Logos/msfs_logo.png)](https://www.flightsimulator.com/)
 
 # LODs-Easy-Generator
 
