@@ -25,7 +25,7 @@ After a lot of trial and error attempts I finally have reached the result I was 
 
 # Add-on installation using Blender:
 
-1. Go to the Releases section of the https://github.com/AsoboStudio/glTF-Blender-IO-MSFS repository. Then download the zip file `io_scene_gltf2_msfs.zip`.
+1. Go to the Releases section of the https://github.com/erasam/LODs-Easy-Generator repository. Then download the zip file `LODs-Easy-Generator.zip`.
 
 ![Download Release](misc/Install/Download_rel.png)
 
@@ -33,9 +33,9 @@ After a lot of trial and error attempts I finally have reached the result I was 
 
 ![Edit Preferences - Add](misc/Install/Edit_Pref.png)
 
-3. Go to Add-ons and click on Install an add-on. This will bring up a file dialog, where you navigate to the folder where you have your `io_scene_gltf2_msfs.zip` downloaded file.
+3. Go to Add-ons and click on Install an add-on; this will bring up a file dialog where you navigate to the folder where you have your `LODs-Easy-Generator.zip` downloaded file.
 
-4. Select the `io_scene_gltf2_msfs.zip` file.  And click on the Install Add-on button.
+4. Select the `LODs-Easy-Generator.zip` file and click on the Install Add-on button.
 
 ![Edit Preferences - Install](misc/Install/Edit_Pref_install.png)
 
