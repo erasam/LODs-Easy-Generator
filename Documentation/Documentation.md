@@ -42,14 +42,17 @@ The **LODs Easy Generator** add-on implements the following workflow:
 
 2. For each iteration between **LOD Start** and **LOD End** (both included)
     - If **Enable Collections by Iterations** is selected then:
-      - It enables all the collections (and belonging meshes) having its Name property containing "LOD0"+current iteration
-      - It disables all the collections (and belonging meshes) having its Name property containing "LOD0"+a different iteration
+      - It makes visible (if hidden) in the viewport all the collections (and all belonging meshes regardless of their Name property) having their Name property containing "LOD0"+current iteration
+        - For example in the iteration "1" it will make visible in the viewport the Collections having "LOD01" in their Name (and all belonging objects regardless of their Name)  
+      - It hides from the viewport all the collections (and all belonging meshes regardless of their Name property) having its Name property containing "LOD0"+a different iteration
+        - For example in the iteration "1" it will hide in the viewport the Collections having "LOD00" or "LOD02" in their Name (and all belonging objects regardless of their Name)
 
-    - If **Delete existing Decimate modifier** is selected it deletes all Decimate modifiers associated to it
+    - For each previously selected Mesh object, if visible in the viewport:
+      - If **Delete existing Decimate modifier** is selected it deletes all Decimate modifiers associated to it
 
-    - If **Apply all modifiers** is selected it applies all the modifiers associated to it
+      - If **Apply all modifiers** is selected it applies all the modifiers associated to it
 
-    - It appends a new Decimate modifier to the selected mesh having
+      - It appends a new Decimate modifier to the selected mesh having
       - Name="LOD"+"str(iteration+1)"
       - Type="Decimate type"
       - Ratio based on "Decimate ratio"   //depending on "Decimate Type" e.g. for Collapse 1-decimateRatio*(iteration+1) 
