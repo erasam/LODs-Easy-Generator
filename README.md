@@ -25,7 +25,7 @@ After a lot of trial and error attempts I finally have reached the result I was 
 
 # Add-on installation using Blender:
 
-1. Go to the Releases section of the https://github.com/erasam/LODs-Easy-Generator repository. Then download the zip file `LODs-Easy-Generator.zip`.
+1. Go to the Releases section of the https://github.com/erasam/LODs-Easy-Generator repository, then download the zip file `LODs-Easy-Generator.zip`.
 
 ![Download Release](Documentation/images/Releases.jpg)
 
