@@ -6,7 +6,7 @@ The **LODs Easy Generator** custom Blender add-on allows the selection of the fo
   - "Collections" / "Meshes"
 - **Search Filter**:
   - "All" / "By Name"
-    Note: if "Search by Meshes" the **Search Filter** also accept wildcard
+- **Name Filter** -> if "Search by Meshes" the **Name Filter** also accept wildcar
 - Number of Iterations (from **LODs Start** to **LODs End**)
 - **Enable Collections by Iterations** (Y/N)
 - **Subdiv Modifiers**:
