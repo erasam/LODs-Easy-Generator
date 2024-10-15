@@ -30,8 +30,8 @@ The **LODs Easy Generator** custom Blender add-on allows the selection of the fo
     - **Planar Angle Limit** 
     - **Delimit** ("None" / "Normal" / "Seam" / "Sharp" / "UVs")
     - **All Boundaries** ("Y" / "N")
-- **Directory**
-- **Filename**
+- **Directory** that must be a full path reference
+- **Filename** used to create the LODs filename (it can include the .blend extension)
 
 # Add-on workflow
 The **LODs Easy Generator** add-on implements the following workflow:
