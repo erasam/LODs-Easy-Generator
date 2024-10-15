@@ -23,8 +23,25 @@ After a lot of trial and error attempts I finally have reached the result I was 
 
 **Note:** all my current payware aircraft creations for Microsoft Flight Simulator have been published on the in-game marketplace and [SimMarket](https://secure.simmarket.com/advanced_search_result.php?keywords=aerosachs) by AeroSachs 
 
-# Installation
+# Add-on installation using Blender:
 
+1. Go to the Releases section of the https://github.com/AsoboStudio/glTF-Blender-IO-MSFS repository. Then download the zip file `io_scene_gltf2_msfs.zip`.
+
+![Download Release](misc/Install/Download_rel.png)
+
+2. Open Blender and go to : Edit > Preferences.
+
+![Edit Preferences - Add](misc/Install/Edit_Pref.png)
+
+3. Go to Add-ons and click on Install an add-on. This will bring up a file dialog, where you navigate to the folder where you have your `io_scene_gltf2_msfs.zip` downloaded file.
+
+4. Select the `io_scene_gltf2_msfs.zip` file.  And click on the Install Add-on button.
+
+![Edit Preferences - Install](misc/Install/Edit_Pref_install.png)
+
+5. Enable the Add-on by clicking on the checkbox.
+
+![Edit Preferences - Enable](misc/Install/Enable_checkbox_addon.png)
 
 # Documentation
 You can read the detailed workflow I implemented in the included Documentation [here](./Documentation/Documentation.md)
