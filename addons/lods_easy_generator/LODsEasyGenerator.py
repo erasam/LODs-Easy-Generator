@@ -222,7 +222,7 @@ def enableCollectionsByIteration(context,iteration):
                     if (obj.type == 'MESH'):
                         #Unhide collection Object in viewport
                         obj.hide_set(False)
-            else:
+            elif (fnmatch.fnmatch(col.name, "LOD0?")):
                 #Hide Collection in viewport
                 print("Hide Collection:", col.name)
                 col.hide_viewport = True
@@ -388,7 +388,7 @@ class WM_OT_PrintParams(Operator):
         print("LODS Start:", LODsGeneratortool.LODsStart)
         print("LODS End:", LODsGeneratortool.LODsEnd)
         
-        print("Enable Collections By Iteration:", LODsGeneratortool.EnableCollectionsByIteration)     
+        print("Enable Collections by Iteration:", LODsGeneratortool.EnableCollectionsByIteration)     
         
         print("Modify Subdiv Modifiers:", LODsGeneratortool.SubdivModifiers)
         print("Delete Existing Decimate Modifiers:", LODsGeneratortool.DeleteExistingDecimateModifiers)
