@@ -476,7 +476,7 @@ class OBJECT_PT_CustomPanel(Panel):
         row = self.layout.row()
         row.label(text="____________________________________________________________________________________")
         row = self.layout.row()
-        row.label(text="LODs export path")
+        row.label(text="LODs export parameters")
         filepath = bpy.data.filepath
         directory = os.path.dirname(filepath)
         layout.prop(LODsGeneratortool, "ExportPath")     
