@@ -31,7 +31,7 @@ After a lot of trial and error attempts I finally have reached the result I was 
 
 2. Open Blender and go to : Edit > Preferences.
 
-![Edit Preferences - Add](misc/Install/Edit_Pref.png)
+![Edit Preferences - Add](Documentation/images/Preferences.jpg)
 
 3. Go to Add-ons and click on Install an add-on; this will bring up a file dialog where you navigate to the folder where you have your `LODs-Easy-Generator.zip` downloaded file.
 
