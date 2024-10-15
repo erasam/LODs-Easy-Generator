@@ -1,5 +1,5 @@
 The LODs Easy Generator custom add-on allows the selection of the following parameters:
-./images/Parameters.jpg
+![Parameters](./images/Parameters.jpg)
 
 - By meshes (as an alternative to By collection)
   - All / By name
