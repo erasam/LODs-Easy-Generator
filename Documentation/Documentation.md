@@ -32,15 +32,16 @@ The **LODs Easy Generator** custom Blender add-on allows the selection of the fo
 - **Filename**
 
 # Add-on workflow
-It implements the following workflow:
-
+The **LODs Easy Generator** add-on implements the following workflow:
 1. Retrieve list of Mesh objects matching selection parameters
    - If "Collections" and "By Name" have been selected the retrieved meshes are all belonging to the collection identified by its Name property
    - If "Meshes" and "By Name" have been selected the retrieved meshes are all the ones identified by their Name matching the **Name Filter** (also using wildcard)
    - In all other case just select all meshes
 
-For each iteration between **LOD Start** and **LOD End**
-- For each selected mesh:
+2. For each iteration between **LOD Start** and **LOD End**
+  - If **Enable Collections by Iterations** is Yes then:
+    - It enables all the collections (and belonging meshes) having the Name containng the "LOD0"+iteration
+    - It disables all the collections (and belonging meshes) having the Name containng the "LOD0"+iteration
    - If "Delete existing Decimate modifier" it deletes all Decimate modifiers associated to it
    - If "Apply all modifiers" it applies all the modifiers associated to it
    - It appends a new Decimate modifier to the selected mesh having
