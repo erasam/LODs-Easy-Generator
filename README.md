@@ -15,6 +15,8 @@ Luckily there are a lot of Blender custom add-ons examples available just browsi
 
 After a lot of trial and error attempts I finally have reached the result I was actually looking for (with some additional ideas I added during the development) and the LODS Easy Generator came to life
 
+You can read the detailed algorithm I implemented in the included Documentation
+
 This Blender add-on is provided free as it is therefore there is no guarantee of the result achieved or for any damage its use can cause (therefore make always a backup of your Blender file before using it)
 
 Note: all my current payware aircraft creations for Microsoft Flight Simulator have been published on the in-game marketplace and SimMarket site by AeroSachs 
