@@ -34,18 +34,12 @@ The **LODs Easy Generator** custom Blender add-on allows the selection of the fo
 # Add-on workflow
 It implements the following workflow:
 
-If "By meshes" is selected
- - If "By name" is selected
-    - filter meshes based on mesh name matching entered pattern //e.g. "Fuselage*"
-   else
-    - select All meshes
-else //selection by Collection
- - If "By name" is selected
-    - filter meshes belonging to a collection with a name matching (if not "Exclude name pattern")/not matching (if "Exclude name pattern") entered pattern //e.g. "*LOD" or "Fuselage"
-   else
-    - select All meshes
+1. Retrieve list of Mesh objects matching selection parameters
+   - If "Collections" and "By Name" have been selected the retrieved meshes are all belonging to the collection identified by its Name property
+   - If "Meshes" and "By Name" have been selected the retrieved meshes are all the ones identified by their Name matching the **Name Filter** (also using wildcard)
+   - In all other case just select all meshes
 
-For each iteration   //for iteration in range(LOD_start,LOD_end+1)
+For each iteration between **LOD Start** and **LOD End**
 - For each selected mesh:
    - If "Delete existing Decimate modifier" it deletes all Decimate modifiers associated to it
    - If "Apply all modifiers" it applies all the modifiers associated to it
@@ -58,7 +52,7 @@ For each iteration   //for iteration in range(LOD_start,LOD_end+1)
 - If "Open created file" it invokes a new blender instance to open the created file
 
 # Add-on execution
-With the parameters shown in the previous picture, the Generate LOD files" button will create two files as shown in the following pictures:
+With the parameters shown in the previous picture, the **Generate LOD files** button will create two files as shown in the following pictures:
 
 ![LODSfiles](./images/LODs_files.jpg)
 
