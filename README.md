@@ -18,7 +18,7 @@ Luckily there are a lot of Blender custom add-ons examples available just browsi
 After a lot of trial and error attempts I finally have reached the result I was actually looking for (with some additional ideas I added during the development) and the **LODS Easy Generator** came to life: it is actually using the standard Blender Decimate modifier to reduce the level of details of the scene meshes.
 
 # Documentation
-You can read the detailed workflow I implemented in the included Documentation [here](./Documentation/Documentation.md):
+You can read the detailed workflow I implemented in the included Documentation [here](./Documentation/Documentation.md)
 
 :warning: Current version of the **LODs Easy Generator** addon is compatible with Blender version from **3.6.0**
 
