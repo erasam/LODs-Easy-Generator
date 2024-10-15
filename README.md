@@ -17,7 +17,7 @@ After a lot of trial and error attempts I finally have reached the result I was 
 
 You can read the detailed workflow I implemented in the included Documentation
 
-:warning: Currnet version of the LODs Easy Generator addon is compatible with Blender version from **3.6.0**
+:warning: Current version of the LODs Easy Generator addon is compatible with Blender version from **3.6.0**
 
 :warning: This Blender add-on is provided free as it is therefore there is no guarantee of the result achieved or for any damage its use can cause (therefore make always a backup of your Blender file before using it)
 
