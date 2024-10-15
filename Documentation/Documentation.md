@@ -17,8 +17,8 @@ The LODs Easy Generator custom add-on allows the selection of the following para
 
 It implements the following workflow:
 
-![LODS files](./images/LODs files.jpg)
+![LODSfiles](./images/LODs files.jpg)
 
-![LODs Iteration 0](./images/LODs Iteration 0.jpg)
+![LODsIteration0](./images/LODs Iteration 0.jpg)
 
-![LODs Iteration 1](./images/LODs Iteration 1.jpg)
+![LODsIteration1](./images/LODs Iteration 1.jpg)
