@@ -13,9 +13,8 @@ I should say I never created a custom Blender add-on before neither I knew how t
 
 Luckily there are a lot of Blender custom add-ons examples available just browsing the web and for any doubt I had during the development I found a lot of answers just looking for them with a good search engine
 
-After a lot of trial and error attempts I finally have reached the result I was actually looking for (with some additional ideas I added during the development) and the LODS Easy Generator came to life
-
-You can read the detailed algorithm I implemented in the included Documentation
+After a lot of trial and error attempts I finally have reached the result I was actually looking for (with some additional ideas I added during the development) and the LODS Easy Generator came to life: it is actually using the standard Blender Decimate modifier to reduce the level of details of the scene meshes.
+You can read the detailed workflow I implemented in the included Documentation
 
 This Blender add-on is provided free as it is therefore there is no guarantee of the result achieved or for any damage its use can cause (therefore make always a backup of your Blender file before using it)
 
