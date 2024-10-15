@@ -33,6 +33,8 @@ It implements the following workflow:
 
 
 
+With the parameters shown in the previous picture, the Generate LOD files" button will create two files as shown in the following pictures:
+
 ![LODSfiles](./images/LODs_files.jpg)
 
 ![LODsIteration0](./images/LODs_Iteration_0.jpg)
