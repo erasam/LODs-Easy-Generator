@@ -48,6 +48,10 @@ The **LODs Easy Generator** add-on implements the following workflow:
         - For example in the iteration "1" it will hide in the viewport the Collections having "LOD00" or "LOD02" in their Name (and all belonging objects regardless of their Name)
 
     - For each previously selected Mesh object, if visible in the viewport:
+      - If **Subdiv Modifiers** is not "Leave":
+        - if "Reduce" is selected it reduces by one the current Level parameter for each associated Subdiv modifier
+        - if "Delete" is selected it deletes all associated Subdiv modifiers
+
       - If **Delete existing Decimate modifier** is selected it deletes all Decimate modifiers associated to it
 
       - If **Apply all modifiers** is selected it applies all the modifiers associated to it
