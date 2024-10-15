@@ -23,4 +23,4 @@ You can read the detailed workflow I implemented in the included Documentation
 
 :warning: This Blender add-on is provided free as it is therefore there is no guarantee of the result achieved or for any damage its use can cause (therefore make always a backup of your Blender file before using it)
 
-Note: all my current payware aircraft creations for Microsoft Flight Simulator have been published on the in-game marketplace and SimMarket site by AeroSachs 
+Note: all my current payware aircraft creations for Microsoft Flight Simulator have been published on the in-game marketplace and SimMarket site (https://secure.simmarket.com/advanced_search_result.php?keywords=aerosachs) by AeroSachs 
