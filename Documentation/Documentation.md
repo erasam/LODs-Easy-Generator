@@ -1,4 +1,5 @@
 The **LODs Easy Generator** custom Blender add-on allows the selection of the following parameters:
+
 ![Parameters](./images/Parameters.jpg)
 
 - **Search by**:
