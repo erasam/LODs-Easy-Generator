@@ -27,7 +27,7 @@ After a lot of trial and error attempts I finally have reached the result I was 
 
 1. Go to the Releases section of the https://github.com/erasam/LODs-Easy-Generator repository. Then download the zip file `LODs-Easy-Generator.zip`.
 
-![Download Release](misc/Install/Download_rel.png)
+![Download Release](Documentation/images/Releases.jpg)
 
 2. Open Blender and go to : Edit > Preferences.
 
