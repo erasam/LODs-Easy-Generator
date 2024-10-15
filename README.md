@@ -23,5 +23,8 @@ After a lot of trial and error attempts I finally have reached the result I was 
 
 **Note:** all my current payware aircraft creations for Microsoft Flight Simulator have been published on the in-game marketplace and [SimMarket](https://secure.simmarket.com/advanced_search_result.php?keywords=aerosachs) by AeroSachs 
 
+# Installation
+
+
 # Documentation
 You can read the detailed workflow I implemented in the included Documentation [here](./Documentation/Documentation.md)
