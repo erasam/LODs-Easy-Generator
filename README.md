@@ -41,7 +41,7 @@ After a lot of trial and error attempts I finally have reached the result I was 
 
 5. Enable the Add-on by clicking on the checkbox.
 
-![Edit Preferences - Enable](Documentation/images/addonenable.jpg)
+![Edit Preferences - Enable](Documentation/images/AddonEnable.jpg)
 
 # Documentation
 You can read the detailed workflow I implemented in the included Documentation [here](./Documentation/Documentation.md)
