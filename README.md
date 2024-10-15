@@ -1,3 +1,5 @@
+[![MSFS](misc/Logos/msfs_logo.png)](https://www.flightsimulator.com/)
+
 # LODs-Easy-Generator
 
 This project was born to make life easier for Microsoft Flight Simulator aircraft developers (as I am) using Blender as the 3D development platform
