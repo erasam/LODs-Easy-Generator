@@ -64,7 +64,7 @@ The **LODs Easy Generator** add-on implements the following workflow:
            - If "Un-Subdivide" the modifier property _Iterations_ is set as **Un-Subdivide Iterations***(Iteration+1)
            - If "Planar" the modifier property _Angle Limit_ is set as **Planar Angle Limit***(Iteration+1)
 
-    - It saves a new blender file in the selected **Directory** with the name built as **Filename**+"LOD0"+"iteration"
+    - It saves a new blender file in the selected **Directory** with the name built as **Filename**+"LOD0"+"Iteration"
 
 **Note**: the Blender file created for the last iteration will become the one being currently edited
 
