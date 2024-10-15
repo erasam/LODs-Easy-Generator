@@ -17,11 +17,11 @@ Luckily there are a lot of Blender custom add-ons examples available just browsi
 
 After a lot of trial and error attempts I finally have reached the result I was actually looking for (with some additional ideas I added during the development) and the **LODS Easy Generator** came to life: it is actually using the standard Blender Decimate modifier to reduce the level of details of the scene meshes.
 
-# Documentation
-You can read the detailed workflow I implemented in the included Documentation [here](./Documentation/Documentation.md)
-
 :warning: Current version of the **LODs Easy Generator** addon is compatible with Blender version from **3.6.0**
 
 :warning: This Blender add-on is provided free as it is therefore there is no guarantee of the result achieved or for any damage its use can cause (therefore make always a backup of your Blender file before using it)
 
 **Note:** all my current payware aircraft creations for Microsoft Flight Simulator have been published on the in-game marketplace and [SimMarket](https://secure.simmarket.com/advanced_search_result.php?keywords=aerosachs) by AeroSachs 
+
+# Documentation
+You can read the detailed workflow I implemented in the included Documentation [here](./Documentation/Documentation.md)
