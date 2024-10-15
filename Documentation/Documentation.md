@@ -1,3 +1,5 @@
+# Add-on parameters
+
 The **LODs Easy Generator** custom Blender add-on allows the selection of the following parameters:
 
 ![Parameters](./images/Parameters.jpg)
@@ -29,6 +31,7 @@ The **LODs Easy Generator** custom Blender add-on allows the selection of the fo
 - **Directory**
 - **Filename**
 
+# Add-on workflow
 It implements the following workflow:
 
 If "By meshes" is selected
@@ -54,6 +57,7 @@ For each iteration   //for iteration in range(LOD_start,LOD_end+1)
 - If "Save file" it saves a new blender file with same source name + LODiteration   //e.g. format(fileName, "_LOD",str(iteration+1),".blend")
 - If "Open created file" it invokes a new blender instance to open the created file
 
+# Add-on execution
 With the parameters shown in the previous picture, the Generate LOD files" button will create two files as shown in the following pictures:
 
 ![LODSfiles](./images/LODs_files.jpg)
