@@ -16,20 +16,22 @@ The **LODs Easy Generator** custom Blender add-on allows the selection of the fo
 - **Delete existing Decimate Modifiers** ("Y" / "N")
 - **Apply all Modifiers** ("Y" / "N")
 - **Decimate Type** ("Collapse" / "Un-subdivide" / "Planar")
-- Decimate Parameters (by **Decimate type**)
+- Decimate Parameters (by **Decimate type**):
   - "Collapse":
     - **Collapse Ratio**
     - **Collapse Triangulate**
   - "Un-Subdivide":
     - **Un-Subdivide Iterations**
   - "Planar":
-    - ** Planar Angle Limit** 
+    - **Planar Angle Limit** 
     - **Delimit** ("None" / "Normal" / "Seam" / "Sharp" / "UVs")
     - **All Boundaries** ("Y" / "N")
-- LODs path
-- LODs filename
+- **Directory**
+- **Filename**
 
 It implements the following workflow:
+
+
 
 ![LODSfiles](./images/LODs_files.jpg)
 
