@@ -22,7 +22,7 @@ bl_info = {
     "name": "LODs easy generator",
     "description": "Addon to easily generate LODs",
     "author": "erasam",
-    "version": (1, 0, 0),
+    "version": (1, 1, 0),
     "blender": (3, 6, 0),
     "location": "View3D > LODs generator",
     "warning": "", # used for warning icon and text in addons panel
@@ -103,10 +103,14 @@ class LODsGenerator_PG_SceneProperties(PropertyGroup):
               ]
         )
  
-    ApplyAllModifiers: BoolProperty(
-        name="Apply all Modifiers",
-        description="Apply all modifiers",
-        default = False
+    ApplyAllModifiers:  EnumProperty(
+        name="Apply All Modifiers",
+        description="Apply All Modifiers",
+        items=[ ('OP1', "Never", ""),
+                ('OP2', "Start of Iteration", ""),
+                ('OP3', "End of Iteration", ""),
+                ('OP4', "Both Start and End of Iteration", ""),
+              ]
         )
  
     DeleteExistingDecimateModifiers: BoolProperty(
@@ -185,6 +189,16 @@ class LODsGenerator_PG_SceneProperties(PropertyGroup):
         name="All Boundaries",
         description="All Boundaries",
         default = False
+        )
+
+    ApplyIncrementally: EnumProperty(
+        name="Apply Incrementally",
+        description="Apply Incrementally Decimate Parameters",
+        items=[ ('OP1', "Never", ""),
+                ('OP2', "Once", ""),
+                ('OP3', "From LOD00 onwards", ""),
+                ('OP4', "From LOD01 onwards", ""),
+              ]
         )
 
     ExportPath: StringProperty(
@@ -347,20 +361,33 @@ class LODsGenerator_OT_generateLODs(Operator):
                     if (LODsGeneratortool.DeleteExistingDecimateModifiers):
                         cleanAllDecimateModifiers(obj)
 
-                    if (LODsGeneratortool.ApplyAllModifiers):
+                    if (LODsGeneratortool.ApplyAllModifiers == "OP2" or LODsGeneratortool.ApplyAllModifiers == "OP4"):
                         applyAllModifiers(obj)
 
                     modifier=obj.modifiers.new(modifierName,'DECIMATE')
                     modifier.decimate_type=decimateType
+                    
+                    if (LODsGeneratortool.ApplyIncrementally == "OP1"):          #Never
+                        increment=0
+                    elif (LODsGeneratortool.ApplyIncrementally == "OP2"):        #Once
+                        increment=1
+                    elif (LODsGeneratortool.ApplyIncrementally == "OP3"):        #From LOD00 onwards
+                        increment=iteration+1
+                    else:                                                       #From LOD01 onwards
+                        increment=iteration
+                    
                     if decimateType == "COLLAPSE":
-                        modifier.ratio=1-LODsGeneratortool.CollapseRatio*(iteration+1)
+                        modifier.ratio=1-LODsGeneratortool.CollapseRatio*increment
                         modifier.use_collapse_triangulate=LODsGeneratortool.CollapseTriangulate
                     elif decimateType == "UNSUBDIV":
-                        modifier.iterations=LODsGeneratortool.UnSubdivideIterations*(iteration+1)
+                        modifier.iterations=LODsGeneratortool.UnSubdivideIterations*increment
                     else:
-                        modifier.angle_limit=radians(LODsGeneratortool.PlanarAngleLimit)*(iteration+1)
+                        modifier.angle_limit=radians(LODsGeneratortool.PlanarAngleLimit)*increment
                         modifier.delimit=planarDelimit
                         modifier.use_dissolve_boundaries=LODsGeneratortool.AllBoundaries
+
+                    if (LODsGeneratortool.ApplyAllModifiers == "OP3" or LODsGeneratortool.ApplyAllModifiers == "OP4"):
+                        applyAllModifiers(obj)
 
             if LODsGeneratortool.ExportName:
                 saveLODfile(LODsGeneratortool.ExportPath,LODsGeneratortool.ExportName,iteration)
@@ -404,6 +431,8 @@ class WM_OT_PrintParams(Operator):
         print("PlanarAngle Limit:", LODsGeneratortool.PlanarAngleLimit)
         print("Planar Delimit:", LODsGeneratortool.PlanarDelimit)
         print("All Boundaries:", LODsGeneratortool.AllBoundaries)
+
+        print("Apply Incrementally:", LODsGeneratortool.ApplyIncrementally)
 
         filepath = bpy.data.filepath
         directory = os.path.dirname(filepath)
@@ -472,6 +501,8 @@ class OBJECT_PT_CustomPanel(Panel):
             layout.prop(LODsGeneratortool, "PlanarAngleLimit")
             layout.prop(LODsGeneratortool, "PlanarDelimit")
             layout.prop(LODsGeneratortool, "AllBoundaries")
+
+        layout.prop(LODsGeneratortool, "ApplyIncrementally")
 
         row = self.layout.row()
         row.label(text="____________________________________________________________________________________")
