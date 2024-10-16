@@ -14,7 +14,7 @@
 #  along with this program; if not, write to the Free Software Foundation,
 #  Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 #
-#  Copyright 2024(C) Eraldo Sammuri
+#  Copyright 2024(C) Eraldo Sammuri (erasam)
 # ##### END GPL LICENSE BLOCK #####
 
 
@@ -24,9 +24,10 @@ bl_info = {
     "author": "erasam",
     "version": (1, 1, 0),
     "blender": (3, 6, 0),
+    "my channel": "https://www.youtube.com/@erasam66",
     "location": "View3D > LODs generator",
     "warning": "", # used for warning icon and text in addons panel
-    "doc_url": "",
+    "doc_url": "https://github.com/erasam/LODs-Easy-Generator/blob/main/Documentation/Documentation.md",
     "tracker_url": "",
     "support": "COMMUNITY",
     "category": "Development"
@@ -373,7 +374,7 @@ class LODsGenerator_OT_generateLODs(Operator):
                         increment=1
                     elif (LODsGeneratortool.ApplyIncrementally == "OP3"):        #From LOD00 onwards
                         increment=iteration+1
-                    else:                                                       #From LOD01 onwards
+                    else:                                                        #From LOD01 onwards
                         increment=iteration
                     
                     if decimateType == "COLLAPSE":
