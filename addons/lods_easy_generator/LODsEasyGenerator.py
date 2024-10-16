@@ -140,7 +140,7 @@ class LODsGenerator_PG_SceneProperties(PropertyGroup):
         name="Decimate Type",
         description="Decimate Type",
         items=[ ('OP1', "Collapse", ""),
-                ('OP2', "Un-ubdivide", ""),
+                ('OP2', "Un-Subdivide", ""),
                 ('OP3', "Planar", ""),
               ]
         )
