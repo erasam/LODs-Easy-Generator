@@ -60,7 +60,7 @@ The **LODs Easy Generator** add-on implements the following workflow:
       - It appends a new Decimate modifier to the selected mesh having:
         - _Name_ set as "LOD0"+"Iteration"
         - _Type_ set as **Decimate type**
-        - if **ApplyIncrementally** is:
+        - if **Apply Incrementally** is:
           - "Never" -> Increment is set to 0
           - "Once"  -> Increment is set to 1
           - "From LOD00 onwards" -> Increment is set to Iteration+1
