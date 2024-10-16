@@ -18,7 +18,7 @@ The **LODs Easy Generator** custom Blender add-on allows the selection of the fo
   - "Reduce Level"
   - "Delete"
 - **Delete existing Decimate Modifiers** ("Y" / "N")
-- **Apply all Modifiers** ("Y" / "N")
+- **Apply all Modifiers** ("Never" / "Start of Iteration" / "End of Iteration" / "Both Start and End of Iteration")
 - **Decimate Type** ("Collapse" / "Un-subdivide" / "Planar")
 - Decimate Parameters (by **Decimate type**):
   - "Collapse":
@@ -30,6 +30,7 @@ The **LODs Easy Generator** custom Blender add-on allows the selection of the fo
     - **Planar Angle Limit** 
     - **Delimit** ("None" / "Normal" / "Seam" / "Sharp" / "UVs")
     - **All Boundaries** ("Y" / "N")
+- **Apply Incrementally** ("Never", "Once", "From LOD00 onwards", "From LOD01 onwards")
 - **Directory** that must be a full path reference
 - **Filename** used to create the LODs filename (it can include the .blend extension)
 
@@ -54,15 +55,22 @@ The **LODs Easy Generator** add-on implements the following workflow:
 
       - If **Delete existing Decimate modifier** is selected it deletes all Decimate modifiers associated to it
 
-      - If **Apply all modifiers** is selected it applies all the modifiers associated to it
+      - If **Apply all modifiers** is "Start of Iteration" or "Both Start and End of Iteration" it applies all the modifiers associated to it
 
       - It appends a new Decimate modifier to the selected mesh having:
         - _Name_ set as "LOD0"+"Iteration"
         - _Type_ set as **Decimate type**
+        - if **ApplyIncrementally** is:
+          - "Never" -> Increment is set to 0
+          - "Once"  -> Increment is set to 1
+          - "From LOD00 onwards" -> Increment is set to Iteration+1
+          - "From LOD01 onwards" -> Increment is set to Iteration+1
         - Attibutes set (by **Decimate type**) based on Decimate Parameters and in particular:
-           - If "Collapse" the modifier property _Ratio_ is set as 1-**Collapse Ratio***(Iteration+1)
-           - If "Un-Subdivide" the modifier property _Iterations_ is set as **Un-Subdivide Iterations***(Iteration+1)
-           - If "Planar" the modifier property _Angle Limit_ is set as **Planar Angle Limit***(Iteration+1)
+           - If "Collapse" the modifier property _Ratio_ is set as 1-**Collapse Ratio***Increment
+           - If "Un-Subdivide" the modifier property _Iterations_ is set as **Un-Subdivide Iterations***Increment
+           - If "Planar" the modifier property _Angle Limit_ is set as **Planar Angle Limit***Increment
+
+      - If **Apply all modifiers** is "End of Iteration" or "Both Start and End of Iteration" it applies all the modifiers associated to it
 
     - It saves a new blender file in the selected **Directory** with the name built as **Filename**+"LOD0"+"Iteration"
 
