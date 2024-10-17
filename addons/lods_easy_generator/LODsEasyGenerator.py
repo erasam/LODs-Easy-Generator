@@ -22,7 +22,7 @@ bl_info = {
     "name": "LODs easy generator",
     "description": "Addon to easily generate LODs",
     "author": "erasam",
-    "version": (1, 1, 0),
+    "version": (1, 2, 0),
     "blender": (3, 6, 0),
     "my channel": "https://www.youtube.com/@erasam66",
     "location": "View3D > LODs generator",
@@ -220,6 +220,30 @@ class LODsGenerator_PG_SceneProperties(PropertyGroup):
 # ------------------------------------------------------------------------
 #    Operators
 # ------------------------------------------------------------------------
+def hideunhideCollection(col, iteration):        #Release 1.2.0
+    print("Collection:", col.name)
+    children = col.children
+    for child in children:                      #Call recursively the hideunhideCollection for all children
+        hideunhideCollection(child, iteration)
+    if (fnmatch.fnmatch(col.name, "*LOD0"+str(iteration)+"*")):
+        #Unhide Collection in viewport
+        print("Unhide Collection:", col.name)
+        col.hide_viewport = False
+        for obj in col.collection.all_objects:      #col.collection.all_objects selects Objects that are in this collection and its child collections
+            print("Object name:", obj.name)
+            if (obj.type == 'MESH'):
+                #Unhide collection Object in viewport
+                obj.hide_set(False)
+    elif (fnmatch.fnmatch(col.name, "*LOD0?*")):
+        #Hide Collection in viewport
+        print("Hide Collection:", col.name)
+        col.hide_viewport = True
+        for obj in col.collection.all_objects:      #col.collection.all_objects selects Objects that are in this collection and its child collections
+            print("Object name:", obj.name)
+            if (obj.type == 'MESH'):
+                #Hide collection Object in viewport
+                obj.hide_set(True)
+
 ##Enable Collections By Iteration
 def enableCollectionsByIteration(context,iteration):
     print("Enable Collections By Iteration")
@@ -227,25 +251,7 @@ def enableCollectionsByIteration(context,iteration):
     collectionList=context.view_layer.layer_collection.children 
     if collectionList:
         for col in collectionList:
-            print("Collection:", col.name)
-            if (fnmatch.fnmatch(col.name, "LOD0"+str(iteration))):
-                #Unhide Collection in viewport
-                print("Unhide Collection:", col.name)
-                col.hide_viewport = False
-                for obj in col.collection.all_objects:      #col.collection.all_objects selects Objects that are in this collection and its child collections
-                    print("Object name:", obj.name)
-                    if (obj.type == 'MESH'):
-                        #Unhide collection Object in viewport
-                        obj.hide_set(False)
-            elif (fnmatch.fnmatch(col.name, "LOD0?")):
-                #Hide Collection in viewport
-                print("Hide Collection:", col.name)
-                col.hide_viewport = True
-                for obj in col.collection.all_objects:      #col.collection.all_objects selects Objects that are in this collection and its child collections
-                    print("Object name:", obj.name)
-                    if (obj.type == 'MESH'):
-                        #Hide collection Object in viewport
-                        obj.hide_set(True)
+            hideunhideCollection(col, iteration)
 
 ##Modify Subdiv modifiers
 def modifySubdivModifiers(obj,operation):
@@ -294,6 +300,8 @@ def saveLODfile(exportPath,exportName,iteration):
         exportName=exportName.split("_LOD")[0]
 
     exportName='{}{}{}{}'.format(exportName, "_LOD0",str(iteration),".blend")
+    print("Export path", exportPath)
+    print("Export name", exportName)
     print("Saving file:", exportPath+exportName)
     bpy.ops.wm.save_as_mainfile(filepath=exportPath+exportName)
 
@@ -345,8 +353,10 @@ class LODsGenerator_OT_generateLODs(Operator):
         if objectList:
             objectMeshList = set(o.data for o in objectList if o.type == 'MESH')   
 
+        exportPath=bpy.path.abspath(LODsGeneratortool.ExportPath)     #Release 1.2.0
+
         for iteration in range(LODsGeneratortool.LODsStart,LODsGeneratortool.LODsEnd+1):
-            print("Iteration", iteration)
+            print("---- Iteration", iteration)
             if (LODsGeneratortool.EnableCollectionsByIteration):
                 enableCollectionsByIteration(context, iteration)
  
@@ -391,7 +401,9 @@ class LODsGenerator_OT_generateLODs(Operator):
                         applyAllModifiers(obj)
 
             if LODsGeneratortool.ExportName:
-                saveLODfile(LODsGeneratortool.ExportPath,LODsGeneratortool.ExportName,iteration)
+                context.window.cursor_set("WAIT")   #Release 1.2.0
+                saveLODfile(exportPath,LODsGeneratortool.ExportName,iteration)
+                context.window.cursor_set("NONE")   #Release 1.2.0
 
         return {'FINISHED'}
         
