@@ -31,7 +31,7 @@ The **LODs Easy Generator** custom Blender add-on allows the selection of the fo
     - **Delimit** ("None" / "Normal" / "Seam" / "Sharp" / "UVs")
     - **All Boundaries** ("Y" / "N")
 - **Apply Incrementally** ("Never", "Once", "From LOD00 onwards", "From LOD01 onwards")
-- **Directory** that must be a full path reference
+- **Directory** (it can be a relative of a full path reference)
 - **Filename** used to create the LODs filename (it can include the .blend extension)
 
 # Add-on workflow
@@ -47,6 +47,7 @@ The **LODs Easy Generator** add-on implements the following workflow:
         - For example in the iteration "1" it will make visible in the viewport the Collections having "LOD01" in their _Name_ (and all belonging objects regardless of their Name)  
       - It hides from the viewport all the collections having their _Name_ property containing "LOD0"+a different iteration; it also hide all belonging meshes regardless of their _Name_ property
         - For example in the iteration "1" it will hide in the viewport the Collections having "LOD00" or "LOD02" in their _Name_ (and all belonging objects regardless of their _Name_)
+      - It goes recursively throught the collection children hierarchy
 
     - For each previously selected Mesh object, if visible in the viewport:
       - If **Subdiv Modifiers** is not "Leave":
