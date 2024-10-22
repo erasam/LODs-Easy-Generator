@@ -73,7 +73,7 @@ The **LODs Easy Generator** add-on implements the following workflow:
 
       - If **Apply all modifiers** is "End of Iteration" or "Both Start and End of Iteration" it applies all the modifiers associated to it
 
-    - If **Filename-** is not empty it saves a new blender file in the selected **Directory** with the name built as **Filename**+"LOD0"+"Iteration"
+    - If **Filename** is not empty it saves a new blender file in the selected **Directory** with the name built as **Filename**+"LOD0"+"Iteration"
 
 **Note**: the Blender file created for the last iteration will become the one being currently edited
 
