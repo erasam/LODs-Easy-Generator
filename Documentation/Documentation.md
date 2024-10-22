@@ -55,7 +55,7 @@ The **LODs Easy Generator** add-on implements the following workflow:
         - if "Reduce" is selected it reduces by one the current _Level_ parameter for each associated Subdiv modifier
         - if "Delete" is selected it deletes all associated Subdiv modifiers
 
-      - If **Delete existing Decimate modifier** is not "None" it deletes all (if "All" has been seelected) Decimate modifiers associated to it or just the ones created by the **LODs easy generator**
+      - If **Delete existing Decimate modifier** is not "None" it deletes all (if "All" has been selected) Decimate modifiers associated to it or just the ones created by the **LODs easy generator**
 
       - If **Apply all modifiers** is "Start of Iteration" or "Both Start and End of Iteration" it applies all the modifiers associated to it
 
