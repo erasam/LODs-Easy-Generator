@@ -17,7 +17,7 @@ The **LODs Easy Generator** custom Blender add-on allows the selection of the fo
   - "Leave"
   - "Reduce Level"
   - "Delete"
-- **Delete existing Decimate Modifiers** ("Y" / "N")
+- **Delete existing Decimate Modifiers** ("None" / "All" / "LODs generated only")
 - **Apply all Modifiers** ("Never" / "Start of Iteration" / "End of Iteration" / "Both Start and End of Iteration")
 - **Decimate Type** ("Collapse" / "Un-subdivide" / "Planar")
 - Decimate Parameters (by **Decimate type**):
@@ -31,8 +31,9 @@ The **LODs Easy Generator** custom Blender add-on allows the selection of the fo
     - **Delimit** ("None" / "Normal" / "Seam" / "Sharp" / "UVs")
     - **All Boundaries** ("Y" / "N")
 - **Apply Incrementally** ("Never", "Once", "From LOD00 onwards", "From LOD01 onwards")
+- **Add Weighted Normal Modifier** ("Y" / "N")
 - **Directory** (it can be a relative of a full path reference)
-- **Filename** used to create the LODs filename (it can include the .blend extension)
+- **Filename** used to create the LODs filename (it can be empty, if entered it can include the .blend extension)
 
 # Add-on workflow
 The **LODs Easy Generator** add-on implements the following workflow:
@@ -54,7 +55,7 @@ The **LODs Easy Generator** add-on implements the following workflow:
         - if "Reduce" is selected it reduces by one the current _Level_ parameter for each associated Subdiv modifier
         - if "Delete" is selected it deletes all associated Subdiv modifiers
 
-      - If **Delete existing Decimate modifier** is selected it deletes all Decimate modifiers associated to it
+      - If **Delete existing Decimate modifier** is not "None" it deletes all (if "All" has been seelected) Decimate modifiers associated to it or just the ones created by the **LODs easy generator**
 
       - If **Apply all modifiers** is "Start of Iteration" or "Both Start and End of Iteration" it applies all the modifiers associated to it
 
@@ -70,6 +71,8 @@ The **LODs Easy Generator** add-on implements the following workflow:
            - If "Collapse" the modifier property _Ratio_ is set as 1-**Collapse Ratio***Increment
            - If "Un-Subdivide" the modifier property _Iterations_ is set as **Un-Subdivide Iterations***Increment
            - If "Planar" the modifier property _Angle Limit_ is set as **Planar Angle Limit***Increment
+
+      - If **Add Weighted Normal Modifier** is selected it adds a default WeightedNormal modifier to it with _Keep Sharp_ and _Face Influence_ properties set
 
       - If **Apply all modifiers** is "End of Iteration" or "Both Start and End of Iteration" it applies all the modifiers associated to it
 
