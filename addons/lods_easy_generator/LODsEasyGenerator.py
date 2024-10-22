@@ -113,11 +113,14 @@ class LODsGenerator_PG_SceneProperties(PropertyGroup):
                 ('OP4', "Both Start and End of Iteration", ""),
               ]
         )
- 
-    DeleteExistingDecimateModifiers: BoolProperty(
-        name="Delete existing Decimate Modifiers",
-        description="Delete existing Decimate Modifiers",
-        default = False
+    
+    DeleteExistingDecimateModifiers: EnumProperty(
+        name="Delete Existing Decimate Modifiers:",
+        description="Delete Existing Decimate Modifiers",
+        items=[ ('OP1', "None", ""),
+                ('OP2', "All", ""),
+                ('OP3', "LODs generated only", ""),
+              ]
         )
   
     LODsStart: IntProperty(
@@ -201,6 +204,12 @@ class LODsGenerator_PG_SceneProperties(PropertyGroup):
                 ('OP4', "From LOD01 onwards", ""),
               ]
         )
+        
+    AddWeightedNormalModifier: BoolProperty(
+        name="Add Weighted Normal Modifier",
+        description="Add Weighted Normal Modifier",
+        default = False
+        )
 
     ExportPath: StringProperty(
         name = "Directory",
@@ -253,6 +262,7 @@ def enableCollectionsByIteration(context,iteration):
         for col in collectionList:
             hideunhideCollection(col, iteration)
 
+
 ##Modify Subdiv modifiers
 def modifySubdivModifiers(obj,operation):
     for m in obj.modifiers:
@@ -265,13 +275,28 @@ def modifySubdivModifiers(obj,operation):
                 #Remove Subdiv modifier
                 print("Removing Subdiv modifier")
                 obj.modifiers.remove(modifier=m)
-               
-##Cleans all decimate modifiers
-def cleanAllDecimateModifiers(obj):
+
+  
+##Cleans decimate modifiers
+def cleanDecimateModifiers(obj,full):
+    print("Cleans decimate modifiers: ",full)
     for m in obj.modifiers:
         if(m.type=="DECIMATE"):
-            print("Removing Decimate modifier")
-            obj.modifiers.remove(modifier=m)
+            if full:
+                print("Removing all Decimate modifier")
+                obj.modifiers.remove(modifier=m)
+            else:
+                if (fnmatch.fnmatch(m.name, "*LOD0?*")):
+                    print("Removing LODs generated Decimate modifier")
+                    obj.modifiers.remove(modifier=m)
+                        
+
+##Add Weighted Normal Modifier
+def addWeightedNormalModifier(obj):
+    modifier=obj.modifiers.new("WeightedNormal",'WEIGHTED_NORMAL')
+    modifier.keep_sharp=True
+    modifier.use_face_influence=True
+
 
 ##Apply all modifiers
 def applyAllModifiers(obj):
@@ -287,6 +312,7 @@ def applyAllModifiers(obj):
 
     for m in obj.modifiers:
         obj.modifiers.remove(m)
+
 
 def saveLODfile(exportPath,exportName,iteration):
     #Trim .blend estension
@@ -369,8 +395,8 @@ class LODsGenerator_OT_generateLODs(Operator):
                     if (LODsGeneratortool.SubdivModifiers != "OP1"):
                         modifySubdivModifiers(obj,LODsGeneratortool.SubdivModifiers)
 
-                    if (LODsGeneratortool.DeleteExistingDecimateModifiers):
-                        cleanAllDecimateModifiers(obj)
+                    if (LODsGeneratortool.DeleteExistingDecimateModifiers != "OP1"):
+                        cleanDecimateModifiers(obj, LODsGeneratortool.DeleteExistingDecimateModifiers == "OP2" )
 
                     if (LODsGeneratortool.ApplyAllModifiers == "OP2" or LODsGeneratortool.ApplyAllModifiers == "OP4"):
                         applyAllModifiers(obj)
@@ -396,6 +422,9 @@ class LODsGenerator_OT_generateLODs(Operator):
                         modifier.angle_limit=radians(LODsGeneratortool.PlanarAngleLimit)*increment
                         modifier.delimit=planarDelimit
                         modifier.use_dissolve_boundaries=LODsGeneratortool.AllBoundaries
+
+                    if (LODsGeneratortool.AddWeightedNormalModifier):
+                        addWeightedNormalModifier(obj)
 
                     if (LODsGeneratortool.ApplyAllModifiers == "OP3" or LODsGeneratortool.ApplyAllModifiers == "OP4"):
                         applyAllModifiers(obj)
@@ -433,7 +462,7 @@ class WM_OT_PrintParams(Operator):
         print("Modify Subdiv Modifiers:", LODsGeneratortool.SubdivModifiers)
         print("Delete Existing Decimate Modifiers:", LODsGeneratortool.DeleteExistingDecimateModifiers)
         print("Apply All Modifiers:", LODsGeneratortool.ApplyAllModifiers)
-
+        
         print("Decimate Type:", LODsGeneratortool.DecimateType)
         
         print("Collapse Ratio:", LODsGeneratortool.CollapseRatio)
@@ -447,6 +476,8 @@ class WM_OT_PrintParams(Operator):
 
         print("Apply Incrementally:", LODsGeneratortool.ApplyIncrementally)
 
+        print("Add Weighted Normal Modifier:", LODsGeneratortool.AddWeightedNormalModifier)
+        
         filepath = bpy.data.filepath
         directory = os.path.dirname(filepath)
         print("File Path:", directory)
@@ -483,7 +514,7 @@ class OBJECT_PT_CustomPanel(Panel):
         LODsGeneratortool = scene.LODsGenerator_tool
 
         row = self.layout.row()
-        row.label(text="____________________________________________________________________________________")
+        row.label(text="_________________________________________________________________________________________________")
         row = self.layout.row()
         row.label(text="LODs generator parameters")
 
@@ -494,15 +525,19 @@ class OBJECT_PT_CustomPanel(Panel):
             layout.prop(LODsGeneratortool, "NameFilter")
             #layout.prop(LODsGeneratortool, "ExcludeNameFilter")
 
+        layout.separator(factor=1.5)
         layout.prop(LODsGeneratortool, "LODsStart")
         layout.prop(LODsGeneratortool, "LODsEnd")
-        
+
+        layout.separator(factor=1.5)        
         layout.prop(LODsGeneratortool, "EnableCollectionsByIteration")  
 
+        layout.separator(factor=1.5)
         layout.prop(LODsGeneratortool, "SubdivModifiers")        
         layout.prop(LODsGeneratortool, "DeleteExistingDecimateModifiers")
         layout.prop(LODsGeneratortool, "ApplyAllModifiers")
-
+        
+        layout.separator(factor=1.5)
         layout.prop(LODsGeneratortool, "DecimateType", expand=True)
  
         if LODsGeneratortool.DecimateType == "OP1":     #Collapse
@@ -514,11 +549,13 @@ class OBJECT_PT_CustomPanel(Panel):
             layout.prop(LODsGeneratortool, "PlanarAngleLimit")
             layout.prop(LODsGeneratortool, "PlanarDelimit")
             layout.prop(LODsGeneratortool, "AllBoundaries")
-
         layout.prop(LODsGeneratortool, "ApplyIncrementally")
 
+        layout.separator(factor=1.5)
+        layout.prop(LODsGeneratortool, "AddWeightedNormalModifier")
+        
         row = self.layout.row()
-        row.label(text="____________________________________________________________________________________")
+        row.label(text="_________________________________________________________________________________________________")
         row = self.layout.row()
         row.label(text="LODs export parameters")
         filepath = bpy.data.filepath
@@ -529,11 +566,11 @@ class OBJECT_PT_CustomPanel(Panel):
         #LODsGeneratortool.ExportName.default=bpy.path.basename(bpy.context.blend_data.filepath)     
 
         row = self.layout.row()
-        row.label(text="____________________________________________________________________________________")
+        row.label(text="_________________________________________________________________________________________________")
         layout.separator(factor=1.5)
 
         #layout.operator("wm.print_params")
-        #layout.separator()
+        #layout.separator(factor=1.5)
 
         layout.operator("lodsgenerator.generatelods")
         layout.separator()
