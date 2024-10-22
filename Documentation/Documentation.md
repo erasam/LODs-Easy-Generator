@@ -65,7 +65,7 @@ The **LODs Easy Generator** add-on implements the following workflow:
           - "Never" -> Increment is set to 0
           - "Once" -> Increment is set to 1
           - "From LOD00 onwards" -> Increment is set to Iteration+1
-          - "From LOD01 onwards" -> Increment is set to Iteration+1
+          - "From LOD01 onwards" -> Increment is set to Iteration
         - Attibutes set (by **Decimate type**) based on Decimate Parameters and in particular:
            - If "Collapse" the modifier property _Ratio_ is set as 1-**Collapse Ratio***Increment
            - If "Un-Subdivide" the modifier property _Iterations_ is set as **Un-Subdivide Iterations***Increment
