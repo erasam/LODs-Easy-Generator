@@ -9,7 +9,7 @@ The **LODs Easy Generator** custom Blender add-on allows the selection of the fo
 - **Search Filter**:
   - "All" / "By Name"
 - **Name Filter** -> it also accepts wildcard
-- **Eclude by Name Filter** (Y/N)
+- **Exclude by Name Filter** (Y/N)
 - Number of Iterations:
   - **LODs Start** with a value between 0 and 9
   - **LODs End** with a value between 0 and 9
