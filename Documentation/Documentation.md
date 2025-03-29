@@ -8,7 +8,8 @@ The **LODs Easy Generator** custom Blender add-on allows the selection of the fo
   - "Collections" / "Meshes"
 - **Search Filter**:
   - "All" / "By Name"
-- **Name Filter** -> if "Search by Meshes" the **Name Filter** also accept wildcar
+- **Name Filter** -> it also accepts wildcard
+- **Eclude by Name Filter** (Y/N)
 - Number of Iterations:
   - **LODs Start** with a value between 0 and 9
   - **LODs End** with a value between 0 and 9
@@ -38,8 +39,16 @@ The **LODs Easy Generator** custom Blender add-on allows the selection of the fo
 # Add-on workflow
 The **LODs Easy Generator** add-on implements the following workflow:
 1. Retrieve list of Mesh objects in the Blender file being edited matching the selection parameters:
-   - If "Collections" and "By Name" have been selected the retrieved meshes are all belonging to the collection identified by its _Name_ property matching the **Name Filter** (no wildcard is allowed)
-   - If "Meshes" and "By Name" have been selected the retrieved meshes are all the ones identified by their _Name_ matching the **Name Filter** (also using wildcard)
+   - If **Collections** and **By Name** have been selected:
+     - if **Exlude by Name Filter** has been selected:
+       - the retrieved meshes are all belonging to the visible collections identified by their _Name_ property NOT matching the **Name Filter** (also using wildcard)
+       else
+       - the retrieved meshes are all belonging to the visible collections identified by their _Name_ property matching the **Name Filter** (also using wildcard)
+   - If **Meshes** and **By Name** have been selected:
+     - if **Exlude by Name Filter** has been selected:
+       - the retrieved meshes are all the ones identified by their _Name_ property NOT matching the **Name Filter** (also using wildcard)
+       else
+       - the retrieved meshes are all the ones identified by their _Name_ property matching the **Name Filter** (also using wildcard)
    - In all other cases just select all meshes
 
 2. For each Iteration between **LOD Start** and **LOD End** (both included)
