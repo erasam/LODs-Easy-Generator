@@ -8,8 +8,8 @@ The **LODs Easy Generator** custom Blender add-on allows the selection of the fo
   - "Collections" / "Meshes"
 - **Search Filter**:
   - "All" / "By Name"
-- **Name Filter** -> it also accepts wildcard
-- **Exclude by Name Filter** (Y/N)
+- **Name Filter** -> only available if **Search Filter** is "By Name", it also accepts wildcard
+- **Exclude by Name Filter** (Y/N) -> only available if **Search Filter** is "By Name"
 - Number of Iterations:
   - **LODs Start** with a value between 0 and 9
   - **LODs End** with a value between 0 and 9
